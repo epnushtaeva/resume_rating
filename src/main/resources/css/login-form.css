@@ -1,0 +1,23 @@
+.loginWrapper{
+  margin-top: 300px;
+  margin-left: 42vw;
+}
+
+.auth-tool-bar{
+  color: #000 !important;
+  background: #808080 !important;
+}
+
+.auth-tool-bar .v-toolbar__content{
+  color: #000 !important;
+  background: #ddd !important;
+}
+
+.login-button {
+    color: #000 !important;
+    background: #ddd !important;
+}
+
+.v-messages__message{
+  color: red !important;
+}

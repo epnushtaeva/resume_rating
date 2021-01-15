@@ -1,0 +1,35 @@
+.v-toolbar__content{
+  background: #f4f7f6;
+}
+
+@media (min-width: 960px)
+.container {
+    max-width: 5000px !important;
+}
+
+.container {
+    width: 100%;
+    padding: 0px !important;
+    max-width: 2000px !important;
+}
+
+.v-toolbar{
+  box-shadow: none !important;
+}
+
+.v-dialog>.v-card>.v-card__text{
+  background: white;
+  color: red;
+}
+
+.v-dialog>.v-card>.v-card__title{
+  background: white;
+}
+
+.v-card__actions{
+  background: white;
+}
+
+.v-application--wrap{
+  min-height: 50vh;
+}

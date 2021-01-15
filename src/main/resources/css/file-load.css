@@ -1,0 +1,90 @@
+.file-load-col{
+   text-align: center;
+   background: repeating-linear-gradient(
+                   45deg,
+                   transparent,
+                   transparent 10px,
+                   #cccccc 10px,
+                   #cccccc 20px
+                 ),
+
+                 linear-gradient(
+                   to bottom,
+                   #fcfcfc,
+                   #cccccc
+                 );
+   border: 1px solid rgba(0,0,0,.12)
+ }
+
+.file-load-col:hover{
+     background: repeating-linear-gradient(
+                        45deg,
+                        transparent,
+                        transparent 10px,
+                        #c0c0c0 10px,
+                        #bbbbb0 20px
+                      ),
+                      linear-gradient(
+                        to bottom,
+                        #fcfcfc,
+                        #cccccc
+                      );
+  }
+
+ .file-load-col .pa-first{
+    border: none !important;
+    background: none !important;
+    margin-top: 40vh;
+    font-size: 20px;
+    font-weight: bold;
+ }
+
+ .file-card{
+    margin-top: 22vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    border: none !important;
+ }
+
+ .v-application .mx-auto {
+     margin-left: 10vw !important;
+     margin-right: 10vw !important;
+ }
+
+ .v-image__image--cover{
+       background-size: 100% 100% !important;
+  }
+
+
+.theme--light.v-card {
+    background-color: inherit !important;
+}
+
+.file-card-title{
+  font-size: 20px;
+  font-weight: bold;
+  color: #000 !important;
+}
+
+.white-card{
+ background:white
+}
+
+.file-coast-col{
+   text-align: center;
+ }
+
+.file-coast-col .file-load-card{
+  }
+
+  .loader{
+    margin-top: 10vh;
+  }
+
+  .file-name-card{
+  margin-top:5%;
+  }
+
+  table thead{
+   display: none;
+  }

@@ -1,0 +1,37 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+                   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                   xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+    <changeSet author="Ekaterina Nushtaeva" id="add_users_data">
+        <insert tableName="users">
+            <column name="id" value="1"/>
+            <column name="user_name" value="admin"/>
+            <column name="password" value="$2a$10$yni2Ve4R8bDhbeZmkq6L8OKkgcgjuFM9WiWdV4iOfelRGEkGjsfZa"/>
+            <column name="full_name" value="Нуштаева Екатерина Петровна"/>
+            <column name="email" value="NushtaevaE@083.pfr.ru"/>
+            <column name="phone" value="1069"/>
+            <column name="post_id" value="5"/>
+            <column name="role_id" value="1"/>
+        </insert>
+        <insert tableName="users">
+            <column name="id" value="2"/>
+            <column name="user_name" value="hr"/>
+            <column name="password" value="$2a$10$yni2Ve4R8bDhbeZmkq6L8OKkgcgjuFM9WiWdV4iOfelRGEkGjsfZa"/>
+            <column name="full_name" value="Калужская Елена Александровна"/>
+            <column name="email" value="KalushskayaE@083.pfr.ru"/>
+            <column name="phone" value="1077"/>
+            <column name="post_id" value="6"/>
+            <column name="role_id" value="2"/>
+        </insert>
+        <insert tableName="users">
+            <column name="id" value="3"/>
+            <column name="user_name" value="dataspec"/>
+            <column name="password" value="$2a$10$yni2Ve4R8bDhbeZmkq6L8OKkgcgjuFM9WiWdV4iOfelRGEkGjsfZa"/>
+            <column name="full_name" value="Логинова Екатерина Владимировна"/>
+            <column name="email" value="LoginovaE@083.pfr.ru"/>
+            <column name="phone" value="1078"/>
+            <column name="post_id" value="4"/>
+            <column name="role_id" value="3"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

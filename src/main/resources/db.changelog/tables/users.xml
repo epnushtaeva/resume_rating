@@ -1,0 +1,50 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+                   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                   xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+    <changeSet author="Ekaterina Nushtaeva" id="create_users_table">
+        <createTable tableName="users">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="user_name" type="varchar(200)">
+                <constraints nullable="false" />
+            </column>
+            <column name="password" type="varchar(500)">
+                <constraints nullable="false" />
+            </column>
+            <column name="full_name" type="varchar(1000)">
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="varchar(100)">
+            </column>
+            <column name="phone" type="varchar(100)">
+            </column>
+            <column name="avatar" type="varchar(500)">
+            </column>
+            <column name="is_account_non_expired" defaultValueBoolean="true" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_account_non_locked" defaultValueBoolean="true" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_credentials_non_expired" defaultValueBoolean="true" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_enabled" defaultValueBoolean="true" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_online" defaultValueBoolean="false" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="post_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="role_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_login" type="date">
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

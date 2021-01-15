@@ -1,0 +1,28 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <!--tables-->
+    <include file="/src/main/resources/liquibase/tables/files.xml"/>
+    <include file="/src/main/resources/liquibase/tables/dictionary.xml"/>
+    <include file="/src/main/resources/liquibase/tables/specalities.xml"/>
+    <include file="/src/main/resources/liquibase/tables/files_and_specialities_to_dictionaries.xml"/>
+    <include file="/src/main/resources/liquibase/tables/files_to_specialities_estimates.xml"/>
+    <include file="/src/main/resources/liquibase/tables/neural_network.xml"/>
+    <include file="/src/main/resources/liquibase/tables/settings.xml"/>
+    <include file="/src/main/resources/liquibase/tables/task_statuses.xml"/>
+    <include file="/src/main/resources/liquibase/tables/task_types.xml"/>
+    <include file="/src/main/resources/liquibase/tables/tasks.xml"/>
+    <include file="/src/main/resources/liquibase/tables/users.xml"/>
+    <include file="/src/main/resources/liquibase/tables/roles.xml"/>
+    <include file="/src/main/resources/liquibase/tables/posts.xml"/>
+
+    <!--data-->
+    <include file="/src/main/resources/liquibase/data/specialities_data.xml"/>
+    <include file="/src/main/resources/liquibase/data/task_types.xml"/>
+    <include file="/src/main/resources/liquibase/data/task_statuses.xml"/>
+    <include file="/src/main/resources/liquibase/data/posts.xml"/>
+    <include file="/src/main/resources/liquibase/data/roles.xml"/>
+    <include file="/src/main/resources/liquibase/data/users.xml"/>
+</databaseChangeLog>

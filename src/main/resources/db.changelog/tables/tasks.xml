@@ -1,0 +1,28 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+                   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                   xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+    <changeSet author="Ekaterina Nushtaeva" id="create_tasks_table">
+        <createTable tableName="tasks">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="task_type_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="speciality_id" type="bigint">
+            </column>
+            <column name="task_date" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="start_time" type="time">
+                <constraints nullable="false" />
+            </column>
+            <column name="end_time" type="time">
+            </column>
+            <column name="status_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

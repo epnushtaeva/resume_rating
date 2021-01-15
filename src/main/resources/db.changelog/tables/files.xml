@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+                   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                   xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+    <changeSet author="Ekaterina Nushtaeva" id="create_files_table">
+        <createTable tableName="files">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="file_name" type="varchar(500)">
+                <constraints nullable="false" />
+            </column>
+            <column name="file_path" type="varchar(1000)">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_learn_example" defaultValueBoolean="false" type="boolean">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ekaterina Nushtaeva" id="add_user_and_hired_in_files_table">
+        <addColumn tableName="files">
+            <column name="is_hired" defaultValueBoolean="false" type="boolean">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_id" type="bigint">
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Ekaterina Nushtaeva" id="add_real_file_id">
+        <addColumn tableName="files">
+            <column name="learn_example_id" type="bigint">
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

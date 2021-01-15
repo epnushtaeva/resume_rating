@@ -1,0 +1,41 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+                   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                   xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+    <changeSet author="Ekaterina Nushtaeva" id="create_files_to_specialities_estimates_table">
+        <createTable tableName="files_to_specialities_estimates">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="file_name" type="varchar(500)">
+                <constraints nullable="false" />
+            </column>
+            <column name="file_path" type="varchar(1000)">
+                <constraints nullable="false" />
+            </column>
+            <column name="speciality_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="mark" defaultValueNumeric="0" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_learn_example" defaultValueBoolean="false" type="boolean">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ekaterina Nushtaeva" id="update_files_to_specialities_estimates_table_scheme">
+        <addColumn tableName="files_to_specialities_estimates">
+            <column name="file_id" type="bigint"/>
+        </addColumn>
+        <dropColumn columnName="file_name"
+                    schemaName="public"
+                    tableName="files_to_specialities_estimates"/>
+        <dropColumn columnName="file_path"
+                    schemaName="public"
+                    tableName="files_to_specialities_estimates"/>
+        <dropColumn columnName="is_learn_example"
+                    schemaName="public"
+                    tableName="files_to_specialities_estimates"/>
+    </changeSet>
+</databaseChangeLog>

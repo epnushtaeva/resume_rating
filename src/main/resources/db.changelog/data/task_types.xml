@@ -1,0 +1,11 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+                   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                   xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+    <changeSet author="Ekaterina Nushtaeva" id="add_task_types_data">
+        <insert tableName="task_types">
+            <column name="id" value="1"/>
+            <column name="name" value="Обучение нейронной сети"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

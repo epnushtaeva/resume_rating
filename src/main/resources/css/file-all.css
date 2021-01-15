@@ -1,0 +1,91 @@
+.files-table{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.files-table thead tr th{
+  font-size: 16px;
+  color: #000  !important;
+  text-align: center !important;
+}
+
+.theme--light.v-data-table {
+ background: none !important;
+}
+
+.v-application .text-left {
+    text-align: center!important;
+}
+
+.theme--light.v-data-table {
+    background: none !important;
+    margin-top: 60px;
+    border-top: 1px solid #000;
+}
+
+.specialities-table tbody tr td, .specialities-table thead tr th{
+   border:1px solid #000 !important;
+   color: #000 !important;
+   font-size: 15px;
+}
+
+.specialities-table table{
+  border-collapse: collapse;
+}
+
+.v-application .specialities-table{
+  border-top:none !important;
+  box-shadow: none !important;
+  margin-top: 17px;
+}
+
+.files-table thead tr:nth-child(odd), .files-table thead tr:nth-child(even), .files-table>.v-data-footer{
+  background: #FFFACD;
+}
+
+.files-table thead tr:nth-child(odd) th, .files-table thead tr:nth-child(even) th{
+  border: 1px solid #000;
+  border-bottom: 1px solid #000 !important;
+}
+
+.files-table>.v-data-table__wrapper>table{
+ border-collapse: collapse !important;
+}
+
+.specialities-table thead tr:nth-child(odd), .specialities-table thead tr:nth-child(even){
+  background: #FFCFCF;
+}
+
+.specialities-table tbody tr:nth-child(odd){
+  background: #FFDDBF;
+}
+.v-data-table td {
+    font-size: 18px;
+    height: 48px;
+    font-weight: bold;
+}
+
+.specialities-table thead tr:nth-child(odd):hover, .specialities-table thead tr:nth-child(even):hover{
+  background: #FFCFCF !important;
+}
+
+.specialities-table tbody tr:nth-child(odd):hover{
+  background: #FFDDBF !important;
+}
+
+.bordered{
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+.v-expansion-panel-header{
+  background:#f5f1f1 !important;
+}
+
+.theme--light.v-expansion-panels .v-expansion-panel{
+   background:#f5f5f5 !important;
+}
+
+.v-application .text-left{
+    text-align: left !important;
+}

@@ -1,0 +1,23 @@
+<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
+                   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                   xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
+    <changeSet author="Ekaterina Nushtaeva" id="create_dictionary_table">
+        <createTable tableName="dictionary">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="word" type="varchar(500)">
+                <constraints nullable="false" />
+            </column>
+            <column name="coded_word" type="varchar(1000)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Ekaterina Nushtaeva" id="update_dictionary_table_scheme">
+        <dropColumn columnName="coded_word"
+                    schemaName="public"
+                    tableName="dictionary"/>
+    </changeSet>
+</databaseChangeLog>
