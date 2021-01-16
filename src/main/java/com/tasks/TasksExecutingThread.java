@@ -7,6 +7,7 @@ import com.services.NeuralNetworkService;
 import com.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Component
 @Qualifier("tasksexecutor")
-public class TasksExecutingThread extends Thread {
+public class TasksExecutingThread{
     @Autowired
     private TaskService taskService;
 
@@ -27,7 +28,8 @@ public class TasksExecutingThread extends Thread {
     @Autowired
     private HeadHunterService headHunterService;
 
-    @Override
+
+    @Scheduled(fixedRate = 5000)
     public void run(){
         while(true){
             List<Task> tasks = this.taskService.getUnexecutedTasks();

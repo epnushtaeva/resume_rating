@@ -147,17 +147,18 @@
                         this.lastPageMessage = '';
                        let specialityId = this.specialityId;
                          axios({
-                                                                                                       url: '/tasks/get_last_page_from',
+                                                                                                       url: '/tasks/get_last_page_from?speciality_id='+specialityId,
                                                                                                        method:'get',
                                                                                                        data: {
                                                                                                          specialityId:  specialityId
                                                                                                        }
                                                                                               })
                                                                                               .then(response=>{
+                                                                                              console.log(response);
                                                                                                        if(response.status == 200){
-                                                                                                            if(response.data.pageFrom){
+
                                                                                                                this.lastPageMessage = 'В последний раз вы запускали загрузку данных для выбранной специальности со страницы:' + response.data.pageFrom + ' по ' + response.data.pageTo;
-                                                                                                            }
+
                                                                                                        }
                                                                                               })
                                                                                               .catch(error=>{
@@ -615,6 +616,7 @@
                                                                                               <v-divider></v-divider>
 
                                                                                               <v-card-actions>
+                                                                                              <div style="float:left; color:red" v-if="lastPageMessage">{{lastPageMessage}}</div>
                                                                                                 <v-spacer></v-spacer>
 <v-progress-circular
                                                                                                                              :size="300"

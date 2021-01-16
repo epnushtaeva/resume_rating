@@ -22,7 +22,7 @@ public class FontsController {
         response.setHeader("Content-Type", "text/css");
 
         try {
-            InputStream is = new FileInputStream(Paths.get("/src/main/resources/fonts/materialdesignicons-webfont.woff").toString());
+            InputStream is = new FileInputStream(Paths.get("fonts/materialdesignicons-webfont.woff").toString());
             IOUtils.copy(is, response.getOutputStream());
             IOUtils.closeQuietly(is);
             response.flushBuffer();
@@ -38,7 +38,7 @@ public class FontsController {
         response.setHeader("Content-Type", "text/css");
 
         try {
-            InputStream is = new FileInputStream(Paths.get("/src/main/resources/fonts/materialdesignicons-webfont.woff2").toString());
+            InputStream is = new FileInputStream(Paths.get("fonts/materialdesignicons-webfont.woff2").toString());
             IOUtils.copy(is, response.getOutputStream());
             IOUtils.closeQuietly(is);
             response.flushBuffer();
@@ -54,7 +54,7 @@ public class FontsController {
         response.setHeader("Content-Type", "text/css");
 
         try {
-            InputStream is = new FileInputStream(Paths.get("/src/main/resources/fonts/materialdesignicons-webfont.ttf").toString());
+            InputStream is = new FileInputStream(Paths.get("fonts/materialdesignicons-webfont.ttf").toString());
             IOUtils.copy(is, response.getOutputStream());
             IOUtils.closeQuietly(is);
             response.flushBuffer();
