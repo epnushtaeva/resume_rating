@@ -8,4 +8,10 @@
             <column name="name" value="Обучение нейронной сети"/>
         </insert>
     </changeSet>
+    <changeSet author="Ekaterina Nushtaeva" id="add_load_hh_task_type">
+        <insert tableName="task_types">
+            <column name="id" value="2"/>
+            <column name="name" value="Загрузка резюме из HeadHunter"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

@@ -1,6 +1,7 @@
 package com.controllers;
 
 import com.classes.DataTableRequest;
+import com.classes.LastPageResult;
 import com.classes.LoadAjaxQueriesResult;
 import com.classes.TaskDataTableResult;
 import com.data_base.entities.Task;
@@ -13,10 +14,7 @@ import com.services.classes.PageSettings;
 import com.services.classes.TasksFilters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/tasks")
@@ -57,5 +55,11 @@ public class TasksController {
         LoadAjaxQueriesResult result = new LoadAjaxQueriesResult();
         result.setRes("OK");
         return result;
+    }
+
+    @GetMapping("/get_last_page_from")
+    @ResponseBody
+    public LastPageResult getLastPageForTask(@RequestParam("speciality_id") long specialityId){
+               return this.taskService.getLastPage(specialityId);
     }
 }

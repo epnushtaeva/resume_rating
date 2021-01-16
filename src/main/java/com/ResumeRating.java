@@ -30,7 +30,7 @@ public class ResumeRating extends SpringBootServletInitializer implements Comman
     @Override
     public void run(String...args) throws Exception {
         TasksExecutingThread thread = applicationContext.getBean(TasksExecutingThread.class);
-        //thread.teach();
-        //thread.run();
+       // thread.teach();
+        thread.run();
     }
 }

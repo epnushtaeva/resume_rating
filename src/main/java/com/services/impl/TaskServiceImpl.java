@@ -1,5 +1,6 @@
 package com.services.impl;
 
+import com.classes.LastPageResult;
 import com.data_base.entities.Task;
 import com.data_base.repositories.TaskRepository;
 import com.dto.TaskAddDto;
@@ -23,6 +24,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -54,6 +56,19 @@ public class TaskServiceImpl implements TaskService {
         Page<Task> tasks = this.getTasksPage(dbQuerySettings, filterValues);
 
         return this.taskToTaskDataTableDtoMapper.tasksToTaskDataTableDtos(tasks);
+    }
+
+    @Override
+    public LastPageResult getLastPage(long specialityId){
+        LastPageResult lastPageResult = new LastPageResult();
+        Task task = this.taskRepository.findFirstByTypeIdAndSpecialityIdOrderByIdDesc(2, specialityId);
+
+        if(task != null) {
+            lastPageResult.setPageFrom(task.getPageFrom());
+            lastPageResult.setPageTo(task.getPageFrom() + task.getPagesCount() - 1);
+        }
+
+        return lastPageResult;
     }
 
     @Transactional
@@ -134,6 +149,11 @@ public class TaskServiceImpl implements TaskService {
     public void updateTaskStatus(long taskId, long statusId){
         Task task = this.taskRepository.getOne(taskId);
         task.setTaskStatus(this.taskStatusService.getTaskStatus(statusId));
+
+        if(statusId == 2 || statusId == 3) {
+            task.setEndTime(new Time(new java.util.Date().getTime()));
+        }
+
         this.taskRepository.save(task);
     }
 

@@ -7,6 +7,8 @@ public class TaskAddDto {
     private String startTime;
     private String endTime;
     private long taskStatusId;
+    private int pageFrom;
+    private int pagesCount;
 
     public long getTaskTypeId() {
         return taskTypeId;
@@ -54,5 +56,21 @@ public class TaskAddDto {
 
     public void setTaskStatusId(long taskStatusId) {
         this.taskStatusId = taskStatusId;
+    }
+
+    public int getPageFrom() {
+        return pageFrom;
+    }
+
+    public void setPageFrom(int pageFrom) {
+        this.pageFrom = pageFrom;
+    }
+
+    public int getPagesCount() {
+        return pagesCount;
+    }
+
+    public void setPagesCount(int pagesCount) {
+        this.pagesCount = pagesCount;
     }
 }

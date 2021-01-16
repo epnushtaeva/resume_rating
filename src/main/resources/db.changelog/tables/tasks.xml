@@ -25,4 +25,12 @@
             </column>
         </createTable>
     </changeSet>
+    <changeSet author="Ekaterina Nushtaeva" id="add_pages_for_headhunter_columns">
+        <addColumn tableName="tasks">
+            <column name="page_from" defaultValueNumeric="0" type="int"/>
+        </addColumn>
+        <addColumn tableName="tasks">
+            <column name="pages_count" defaultValueNumeric="0" type="int"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

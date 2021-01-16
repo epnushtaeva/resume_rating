@@ -2,6 +2,7 @@ package com.tasks;
 
 import com.data_base.entities.Task;
 import com.services.DictionaryService;
+import com.services.HeadHunterService;
 import com.services.NeuralNetworkService;
 import com.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class TasksExecutingThread extends Thread {
     @Autowired
     private DictionaryService dictionaryService;
 
+    @Autowired
+    private HeadHunterService headHunterService;
+
     @Override
     public void run(){
         while(true){
@@ -41,7 +45,8 @@ public class TasksExecutingThread extends Thread {
     }
 
     public void teach(){
-        neuralNetworkService.teachNeuralNetwork(3);
+        this.headHunterService.loadResumeFromHeadHunter(1, 0, 1);
+        //neuralNetworkService.teachNeuralNetwork(3);
     }
 
     private void executeTask(Task task){
@@ -57,6 +62,10 @@ public class TasksExecutingThread extends Thread {
                         neuralNetworkService.rebuildNetwork(task.getSpecialityId());
                     }
 
+                    taskService.updateTaskStatus(task.getId(), 2);
+                    break;
+                case 2:
+                    this.headHunterService.loadResumeFromHeadHunter(task.getSpecialityId(), task.getPageFrom(), task.getPagesCount());
                     taskService.updateTaskStatus(task.getId(), 2);
                     break;
                 default:

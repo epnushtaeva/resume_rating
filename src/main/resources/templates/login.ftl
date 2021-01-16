@@ -65,7 +65,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-<#if error>
+<#if error??>
             <v-row style="color:red">
             Ошибка: неверный логин или пароль
             </v-row> <br/></#if>

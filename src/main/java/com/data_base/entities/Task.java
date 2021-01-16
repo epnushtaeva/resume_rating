@@ -24,6 +24,12 @@ public class Task implements Serializable {
     @Column(name = "end_time")
     private Time endTime;
 
+    @Column(name = "page_from")
+    private int pageFrom;
+
+    @Column(name = "pages_count")
+    private int pagesCount;
+
     @Column(name = "task_type_id", updatable = false, insertable = false)
     private long typeId;
 
@@ -123,5 +129,21 @@ public class Task implements Serializable {
 
     public void setTypeId(long typeId) {
         this.typeId = typeId;
+    }
+
+    public int getPageFrom() {
+        return pageFrom;
+    }
+
+    public void setPageFrom(int pageFrom) {
+        this.pageFrom = pageFrom;
+    }
+
+    public int getPagesCount() {
+        return pagesCount;
+    }
+
+    public void setPagesCount(int pagesCount) {
+        this.pagesCount = pagesCount;
     }
 }

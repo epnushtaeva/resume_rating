@@ -65,4 +65,6 @@ public interface FileService {
     void unlinkFileFromStorage(String filePath);
 
     String saveJsonToStorage(String json);
+
+    void saveResume(String html, String specialityName);
 }

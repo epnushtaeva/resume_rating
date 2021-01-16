@@ -1,5 +1,6 @@
 package com.services;
 
+import com.classes.LastPageResult;
 import com.data_base.entities.Task;
 import com.dto.TaskAddDto;
 import com.dto.TaskDataTableDto;
@@ -11,6 +12,8 @@ import java.util.List;
 
 public interface TaskService {
     List<TaskDataTableDto> getTasks(PageSettings pageSettings, TasksFilters filterValues);
+
+    LastPageResult getLastPage(long specialityId);
 
     long getTasksCount(TasksFilters filterValues);
 

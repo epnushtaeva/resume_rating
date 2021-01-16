@@ -27,6 +27,15 @@ import org.apache.commons.compress.utils.FileNameUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.pdfbox.util.Charsets;
 import org.apache.tika.parser.txt.CharsetDetector;
+import org.docx4j.Docx4J;
+import org.docx4j.Docx4jProperties;
+import org.docx4j.XmlUtils;
+import org.docx4j.convert.in.xhtml.XHTMLImporterImpl;
+import org.docx4j.convert.out.HTMLSettings;
+import org.docx4j.openpackaging.exceptions.Docx4JException;
+import org.docx4j.openpackaging.exceptions.InvalidFormatException;
+import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
+import org.docx4j.wml.CTDocProtect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -39,8 +48,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -422,6 +430,56 @@ public class FileServiceImpl implements FileService {
         }
 
         return newFilePath;
+    }
+
+    @Override
+    public void saveResume(String html, String specialityName){
+        WordprocessingMLPackage wordMLPackage = null;
+        String newFilePath = this.fileStorageDir + UUID.randomUUID() + ".docx";
+html = html.replace("&nbsp", "").replace("nbsp", "");
+        try
+        {
+            wordMLPackage = WordprocessingMLPackage.createPackage();
+        }
+        catch (InvalidFormatException e)
+        {
+            e.printStackTrace();
+        }
+
+        XHTMLImporterImpl XHTMLImporter = new XHTMLImporterImpl(wordMLPackage);
+
+        try {
+            wordMLPackage.getMainDocumentPart().getContent().addAll(
+                    XHTMLImporter.convert( html, null) );
+        } catch (Docx4JException e) {
+            e.printStackTrace();
+        }
+
+        try{
+            Files.write(Paths.get(newFilePath), XmlUtils.marshaltoString(wordMLPackage
+                    .getMainDocumentPart().getJaxbElement(), true, true).getBytes());
+
+            com.data_base.entities.File file = new com.data_base.entities.File();
+            file.setLearnExample(false);
+            file.setPath(newFilePath);
+            file.setName("Резюме (" + specialityName + ").docx");
+            this.fileRepository.saveAndFlush(file);
+
+            List<Speciality> specialities = this.specialityService.getAllSpecialitiesOrdered();
+
+            for (Speciality speciality : specialities) {
+                FileMarkForSpeciality fileMarkForSpeciality = new FileMarkForSpeciality();
+                fileMarkForSpeciality.setFile(file);
+                fileMarkForSpeciality.setSpeciality(speciality);
+                fileMarkForSpeciality.setMark(0);
+                this.fileMarkRepository.saveAndFlush(fileMarkForSpeciality);
+            }
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private String copyFileToStorage(String filePath, String fileName) {

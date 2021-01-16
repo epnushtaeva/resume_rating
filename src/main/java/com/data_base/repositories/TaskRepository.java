@@ -31,4 +31,6 @@ public interface TaskRepository extends JpaRepository<Task, Long>,
     List<Task> findAllByTaskDateAndStartTimeBetweenAndStatusIdOrderById(Date taskDate, Time startTimeTo, Time startTimeFrom, long statusId);
 
     void deleteAllBySpecialityId(long specialityId);
+
+    Task findFirstByTypeIdAndSpecialityIdOrderByIdDesc(long typeId, long specialityId);
 }

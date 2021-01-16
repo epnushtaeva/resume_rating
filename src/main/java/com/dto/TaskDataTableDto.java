@@ -10,6 +10,8 @@ public class TaskDataTableDto {
     private String endTime = "";
     private String status;
     private String deleteButton = "";
+    private int pageFrom;
+    private int pagesCount;
 
     public Long getTaskId() {
         return taskId;
@@ -81,5 +83,21 @@ public class TaskDataTableDto {
 
     public void setDeleteButton(String deleteButton) {
         this.deleteButton = deleteButton;
+    }
+
+    public int getPageFrom() {
+        return pageFrom;
+    }
+
+    public void setPageFrom(int pageFrom) {
+        this.pageFrom = pageFrom;
+    }
+
+    public int getPagesCount() {
+        return pagesCount;
+    }
+
+    public void setPagesCount(int pagesCount) {
+        this.pagesCount = pagesCount;
     }
 }
